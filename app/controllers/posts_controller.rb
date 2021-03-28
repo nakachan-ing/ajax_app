@@ -8,8 +8,11 @@ class PostsController < ApplicationController
   # end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    # Post.create(content: params[:content])
+    Post.create(content: params[:content], checked: false)
+    # redirect_to action: :index
+    render json:{ post: post}
+    #render json:{ post: post }でJSON形式（データ）としてchecked.jsに返却
   end
 
   def checked
